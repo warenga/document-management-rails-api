@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170903134227) do
+ActiveRecord::Schema.define(version: 20170904105711) do
 
   create_table "documents", force: :cascade do |t|
     t.string "title"
-    t.string "content"
-    t.string "access"
+    t.text "content"
+    t.boolean "access"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -32,8 +32,10 @@ ActiveRecord::Schema.define(version: 20170903134227) do
     t.string "username"
     t.string "email"
     t.string "password"
+    t.integer "role_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["role_id"], name: "index_users_on_role_id"
   end
 
 end
